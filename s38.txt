@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ocean Life — The Complete Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#07191f;
+    --panel:#0e2830;
+    --line1:#164450;
+    --line2:#2c6e78;
+    --coral:#e8935c;
+    --foam:#7fd6c2;
+    --chalk:#eaf6f4;
+    --chalk-dim:#9fc2bd;
+    --max:700px;
+    --wide:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--ink);color:var(--chalk);font-family:"Source Serif 4",Georgia,serif;line-height:1.65;font-size:18px;}
+  h1,h2,h3{font-family:"Big Shoulders Display",sans-serif;text-transform:uppercase;letter-spacing:0.01em;color:var(--chalk);margin:0;}
+  a{color:var(--coral);}
+  a:focus-visible{outline:3px solid var(--coral);outline-offset:3px;}
+  img,svg{max-width:100%;display:block;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  .courtnav{position:sticky;top:0;z-index:50;background:rgba(7,25,31,0.92);backdrop-filter:blur(6px);border-bottom:1px solid rgba(234,246,244,0.12);}
+  .courtnav-inner{max-width:var(--wide);margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:22px;overflow-x:auto;}
+  .courtnav-mark{display:flex;align-items:center;gap:8px;font-family:"Big Shoulders Display",sans-serif;font-weight:700;font-size:1.05rem;color:var(--chalk);white-space:nowrap;}
+  .chapter-link{color:var(--chalk-dim);text-decoration:none;font-size:0.82rem;letter-spacing:0.03em;text-transform:uppercase;font-family:"Big Shoulders Display",sans-serif;white-space:nowrap;border-bottom:2px solid transparent;padding-bottom:2px;}
+  .chapter-link:hover{color:var(--coral);border-color:var(--coral);}
+
+  .hero{position:relative;padding:72px 24px 40px;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%, #123640 0%, var(--ink) 62%);}
+  .hero-inner{max-width:var(--wide);margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;gap:36px;align-items:center;}
+  .hero h1{font-size:clamp(3rem,8vw,5.6rem);line-height:0.88;font-weight:900;}
+  .hero h1 span{display:block;color:var(--foam);}
+  .hero-tag{margin-top:18px;max-width:46ch;color:var(--chalk-dim);font-size:1.08rem;}
+
+  .scoreboard{background:var(--panel);border-top:1px solid rgba(234,246,244,0.1);border-bottom:1px solid rgba(234,246,244,0.1);}
+  .scoreboard-inner{max-width:var(--wide);margin:0 auto;padding:26px 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .stat-num{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:2.2rem;color:var(--foam);line-height:1;}
+  .stat-label{font-size:0.76rem;color:var(--chalk-dim);text-transform:uppercase;letter-spacing:0.05em;margin-top:6px;font-family:"Big Shoulders Display",sans-serif;}
+
+  .divider{display:flex;align-items:center;gap:14px;max-width:var(--wide);margin:0 auto;padding:56px 24px 0;}
+  .divider .line{flex:1;height:0;border-top:2px dashed rgba(234,246,244,0.2);}
+  .divider svg{width:18px;height:18px;flex:0 0 auto;}
+
+  .chapter{padding:34px 24px 10px;}
+  .chapter-head{max-width:var(--max);margin:0 auto 22px;display:flex;align-items:baseline;gap:16px;}
+  .chapter-num{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:2.5rem;color:var(--line2);line-height:1;}
+  .chapter-head h2{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;}
+  .chapter p{max-width:var(--max);margin:0 auto 18px;}
+  .chapter p.lede{font-size:1.1rem;}
+  .chapter ul{max-width:var(--max);margin:0 auto 20px;padding-left:22px;}
+  .chapter li{margin-bottom:8px;}
+  .chapter figure{max-width:var(--max);margin:28px auto;}
+  .chapter figcaption{font-size:0.85rem;color:var(--chalk-dim);margin-top:10px;font-family:"Big Shoulders Display",sans-serif;}
+
+  .timeline{max-width:var(--max);margin:30px auto;border-left:2px solid var(--line2);padding-left:24px;}
+  .tl-item{margin-bottom:26px;position:relative;}
+  .tl-item::before{content:"";position:absolute;left:-30px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--coral);}
+  .tl-year{font-family:"Big Shoulders Display",sans-serif;font-weight:700;color:var(--coral);font-size:1.2rem;}
+  .tl-item p{margin:4px 0 0;}
+
+  .skill-grid{max-width:var(--max);margin:26px auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .skill-card{background:var(--panel);border:1px solid rgba(234,246,244,0.1);padding:18px;}
+  .skill-card svg{width:34px;height:34px;margin-bottom:10px;}
+  .skill-card h3{font-size:1.1rem;font-weight:700;margin-bottom:6px;}
+  .skill-card p{margin:0;font-size:0.96rem;color:var(--chalk-dim);max-width:none;}
+
+  .callout{max-width:var(--max);margin:26px auto;padding:20px 22px;background:var(--panel);border-left:4px solid var(--coral);}
+  .callout p{margin:0;max-width:none;}
+
+  .glossary{max-width:var(--wide);margin:24px auto;display:grid;grid-template-columns:1fr 1fr;gap:0 40px;}
+  .gloss-item{padding:14px 0;border-bottom:1px solid rgba(234,246,244,0.1);}
+  .gloss-item dt{font-family:"Big Shoulders Display",sans-serif;font-weight:700;color:var(--coral);font-size:1rem;}
+  .gloss-item dd{margin:4px 0 0;color:var(--chalk-dim);font-size:0.94rem;}
+
+  footer{margin-top:60px;padding:40px 24px 60px;border-top:1px solid rgba(234,246,244,0.12);background:#0a1e24;}
+  footer .wrap{color:var(--chalk-dim);font-size:0.9rem;}
+
+  @media(max-width:760px){
+    .hero-inner{grid-template-columns:1fr;}
+    .scoreboard-inner{grid-template-columns:1fr 1fr;}
+    .skill-grid{grid-template-columns:1fr;}
+    .glossary{grid-template-columns:1fr;}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<nav class="courtnav">
+  <div class="courtnav-inner">
+    <span class="courtnav-mark">≈ Ocean</span>
+    <a class="chapter-link" href="#zones">Ocean Zones</a>
+    <a class="chapter-link" href="#life">Marine Life</a>
+    <a class="chapter-link" href="#history">Exploration</a>
+    <a class="chapter-link" href="#threats">Conservation</a>
+    <a class="chapter-link" href="#glossary">Glossary</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Ocean<span>Life</span></h1>
+      <p class="hero-tag">A complete, plain-language reference on the world's oceans — their structure, the creatures that live there, and the pressures they now face.</p>
+    </div>
+    <svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of ocean waves and a fish">
+      <path d="M0 60 C 40 30, 90 90, 140 60 S 240 30, 290 60 S 360 60, 360 60" fill="none" stroke="#7fd6c2" stroke-width="2.4"/>
+      <path d="M0 100 C 40 70, 90 130, 140 100 S 240 70, 290 100 S 360 100, 360 100" fill="none" stroke="#2c6e78" stroke-width="2"/>
+      <path d="M80 200 q30 -20 60 0 q30 20 60 0" fill="none" stroke="#7fd6c2" stroke-width="2"/>
+      <ellipse cx="240" cy="220" rx="30" ry="16" fill="#e8935c"/>
+      <path d="M270 220 l16 -8 l0 16 z" fill="#e8935c"/>
+      <circle cx="228" cy="216" r="2.4" fill="#07191f"/>
+    </svg>
+  </div>
+</header>
+
+<div class="scoreboard">
+  <div class="scoreboard-inner">
+    <div><div class="stat-num">71%</div><div class="stat-label">Of Earth's surface</div></div>
+    <div><div class="stat-num">11km</div><div class="stat-label">Depth of Mariana Trench</div></div>
+    <div><div class="stat-num">&lt;20%</div><div class="stat-label">Ocean floor mapped</div></div>
+    <div><div class="stat-num">230K+</div><div class="stat-label">Known marine species</div></div>
+  </div>
+</div>
+
+<div class="divider" aria-hidden="true"><div class="line"></div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="#2c6e78" stroke-width="1.6"/></svg><div class="line"></div></div>
+
+<section class="chapter" id="zones">
+  <div class="chapter-head"><span class="chapter-num">01</span><h2>Ocean zones</h2></div>
+  <p class="lede">Oceanographers divide the ocean into zones by depth and light, and life changes dramatically from one to the next.</p>
+  <p>The <strong>sunlight zone</strong> reaches down to about 200 metres and supports most marine plants and the majority of visible sea life. Below that, the <strong>twilight zone</strong> gets very little light. Beyond about 1,000 metres, the <strong>midnight zone</strong> is in permanent darkness, home to creatures that make their own light through bioluminescence.</p>
+  <figure>
+    <svg viewBox="0 0 300 160" width="300" height="160">
+      <rect x="0" y="0" width="300" height="53" fill="#123640"/>
+      <rect x="0" y="53" width="300" height="53" fill="#0e2830"/>
+      <rect x="0" y="106" width="300" height="54" fill="#07191f"/>
+      <text x="10" y="30" fill="#7fd6c2" font-family="Big Shoulders Display" font-size="13">SUNLIGHT ZONE</text>
+      <text x="10" y="83" fill="#9fc2bd" font-family="Big Shoulders Display" font-size="13">TWILIGHT ZONE</text>
+      <text x="10" y="136" fill="#5c8a85" font-family="Big Shoulders Display" font-size="13">MIDNIGHT ZONE</text>
+    </svg>
+    <figcaption>The three broad light zones of the open ocean.</figcaption>
+  </figure>
+</section>
+
+<div class="divider" aria-hidden="true"><div class="line"></div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="#2c6e78" stroke-width="1.6"/></svg><div class="line"></div></div>
+
+<section class="chapter" id="life">
+  <div class="chapter-head"><span class="chapter-num">02</span><h2>Who lives there</h2></div>
+  <p class="lede">The ocean holds more known species than any other habitat on Earth, spread across very different kinds of animals.</p>
+  <div class="skill-grid">
+    <div class="skill-card"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="10" fill="none" stroke="#e8935c" stroke-width="2"/><path d="M14 16c2 2 10 2 12 0M14 24c2-2 10-2 12 0" stroke="#e8935c" stroke-width="1.6" fill="none"/></svg><h3>Coral reefs</h3><p>Built by tiny animals called coral polyps, reefs support roughly a quarter of all marine species despite covering under 1% of the ocean floor.</p></div>
+    <div class="skill-card"><svg viewBox="0 0 40 40"><ellipse cx="20" cy="22" rx="14" ry="8" fill="none" stroke="#e8935c" stroke-width="2"/><path d="M32 22l6-4v8z" fill="#e8935c"/><circle cx="12" cy="6" r="1.5" fill="#e8935c"/></svg><h3>Marine mammals</h3><p>Whales, dolphins, and seals breathe air but spend most or all of their lives in the water.</p></div>
+    <div class="skill-card"><svg viewBox="0 0 40 40"><ellipse cx="18" cy="20" rx="12" ry="7" fill="none" stroke="#e8935c" stroke-width="2"/><path d="M28 20l8-5v10z" fill="#e8935c"/></svg><h3>Fish</h3><p>The largest group of ocean vertebrates, from tiny gobies to the whale shark, the largest fish alive.</p></div>
+    <div class="skill-card"><svg viewBox="0 0 40 40"><circle cx="20" cy="18" r="7" fill="none" stroke="#e8935c" stroke-width="2"/><path d="M15 25l-3 8M20 25v9M25 25l3 8" stroke="#e8935c" stroke-width="1.8"/></svg><h3>Deep-sea life</h3><p>Anglerfish, giant squid, and tube worms survive extreme pressure, cold, and total darkness far from the surface.</p></div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><div class="line"></div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="#2c6e78" stroke-width="1.6"/></svg><div class="line"></div></div>
+
+<section class="chapter" id="history">
+  <div class="chapter-head"><span class="chapter-num">03</span><h2>Exploring the deep</h2></div>
+  <p class="lede">Humans have only mapped a small fraction of the ocean floor in detail — we know the surface of the Moon better than our own seabed.</p>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-year">1872</div><p>The HMS Challenger expedition begins the first systematic study of the world's oceans.</p></div>
+    <div class="tl-item"><div class="tl-year">1960</div><p>The bathyscaphe Trieste reaches the bottom of the Mariana Trench, the deepest known point in the ocean.</p></div>
+    <div class="tl-item"><div class="tl-year">1977</div><p>Scientists discover hydrothermal vent ecosystems, thriving communities of life with no sunlight at all.</p></div>
+    <div class="tl-item"><div class="tl-year">Today</div><p>Autonomous underwater vehicles and satellite mapping continue to reveal new details of the seafloor.</p></div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><div class="line"></div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="#2c6e78" stroke-width="1.6"/></svg><div class="line"></div></div>
+
+<section class="chapter" id="threats">
+  <div class="chapter-head"><span class="chapter-num">04</span><h2>Why the ocean matters, and what threatens it</h2></div>
+  <p>The ocean produces a large share of the oxygen we breathe, mostly from microscopic phytoplankton, and absorbs a significant portion of the carbon dioxide released into the atmosphere. It also moves heat around the planet through currents, regulating global climate.</p>
+  <ul>
+    <li><strong>Overfishing:</strong> Removing fish faster than populations can recover.</li>
+    <li><strong>Plastic pollution:</strong> Waste that breaks down into microplastics found throughout the food chain.</li>
+    <li><strong>Warming waters:</strong> Rising ocean temperatures stress coral reefs and shift species' ranges.</li>
+    <li><strong>Acidification:</strong> Absorbed carbon dioxide lowers ocean pH, making it harder for shellfish and coral to build their skeletons.</li>
+  </ul>
+  <div class="callout"><p>Marine protected areas, fishing quotas, and reduced plastic use are among the most widely recommended tools for slowing damage to ocean ecosystems.</p></div>
+</section>
+
+<div class="divider" aria-hidden="true"><div class="line"></div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="#2c6e78" stroke-width="1.6"/></svg><div class="line"></div></div>
+
+<section class="chapter" id="glossary">
+  <div class="chapter-head"><span class="chapter-num">05</span><h2>Glossary of ocean terms</h2></div>
+  <dl class="glossary">
+    <div class="gloss-item"><dt>Plankton</dt><dd>Tiny plants and animals that drift with ocean currents, forming the base of the marine food chain.</dd></div>
+    <div class="gloss-item"><dt>Bioluminescence</dt><dd>Light produced by a living organism, common among deep-sea creatures.</dd></div>
+    <div class="gloss-item"><dt>Current</dt><dd>A continuous, directed movement of ocean water, driven by wind, temperature, and salinity.</dd></div>
+    <div class="gloss-item"><dt>Hydrothermal vent</dt><dd>A fissure on the seafloor that releases geothermally heated water, supporting unique ecosystems.</dd></div>
+    <div class="gloss-item"><dt>Continental shelf</dt><dd>The shallow, gently sloping seabed surrounding a continent before it drops to the deep ocean floor.</dd></div>
+    <div class="gloss-item"><dt>Salinity</dt><dd>The measure of dissolved salt in ocean water.</dd></div>
+  </dl>
+</section>
+
+<footer><div class="wrap"><p>A general, plain-language reference on ocean zones, marine life, exploration, and conservation.</p></div></footer>
+</body>
+</html>
